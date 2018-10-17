@@ -34,7 +34,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
             let locationCoordinate = CLLocationCoordinate2DMake(latitude.doubleValue, longitude.doubleValue)
             let annotation = MKPointAnnotation()
             annotation.coordinate = locationCoordinate
-            annotation.title = "Picture!"
+        annotation.title = "\(latitude), \(longitude)"
             mapView.addAnnotation(annotation)
             self.navigationController?.popToViewController(self, animated: true)
     }
@@ -54,7 +54,6 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         return annotationView
     }
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -66,7 +65,6 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func onTapCamera(_ sender: Any) {
-        print("clicked")
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true

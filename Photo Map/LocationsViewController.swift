@@ -30,6 +30,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        self.searchBar.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +57,6 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         let lat = venue.value(forKeyPath: "location.lat") as! NSNumber
         let lng = venue.value(forKeyPath: "location.lng") as! NSNumber
 
-        let latString = "\(lat)"
-        let lngString = "\(lng)"
-
-        print(latString + " " + lngString)
         delegate.locationsPickedLocation(controller: self, latitude: lat , longitude: lng )
     }
     
